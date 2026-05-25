@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function Contact() {
   return (
     <main>
@@ -11,6 +13,9 @@ export default function Contact() {
       <p>電話番号：090-0000-0000</p>
       <p>X（Twitter）：@ryu</p>
       <p>GitHub：github.com/</p>
+
+      <Link href="/about">私について/</Link>
+      <Link href="/">HOME</Link>
     </main>
   );
 }
