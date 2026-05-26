@@ -19,23 +19,34 @@ export default function Counter() {
 　　　useState({})       オブジェクト*/
   }
   const [count, setCount] = useState(0);
-  {
-    /*useState は 配列を返す。1つ目count現在の値を読むためのもの。2つ目setCount値を更新するための関数*/
-  }
-  {
-    /*return ( <main>...</main> )
-     画面に表示するHTMLの構造。JSXという書き方で、JavaScriptの中にHTMLのような構文が書ける*/
-  }
-  {
-    /* ↓Tailwind CSS。JSXでは className=。スペース区切りで複数のスタイルを指定。flex-col → 縦並びに変更*/
-  }
+  //useState は 配列を返す。1つ目count現在の値を読むためのもの。2つ目setCount値を更新するための関数
+
+  const getCountColor = () => {
+    if (count >= 100) return "text-yellow-300"; // 黄色
+    if (count >= 50) return "text-red-800"; // 赤色
+    if (count >= 40) return "text-red-400"; // 赤色
+    if (count >= 30) return "text-purple-800"; // 紫色
+    if (count >= 20) return "text-purple-400"; // 紫色
+    if (count >= 10) return "text-cyan-400"; // 水色
+    return "text-zinc-300"; // 白（デフォルト）
+  };
+  // countの値によって色を決める関数をreturnの上に追加
+
   return (
-    <main className="flex flex-col items-center justify-center min-h-screen gap-8">
+    //return ( <main>...</main> ) 画面に表示するHTMLの構造。JSXという書き方で、JavaScriptの中にHTMLのような構文が書ける
+    //Tailwind CSS。JSXでは className=。スペース区切りで複数のスタイルを指定。flex-col → 縦並びに変更
+    <main className="flex flex-col items-center justify-center min-h-screen gap-8 bg-zinc-900">
       {/*text-3xl文字を大きくする（30px相当）font-bold 文字を太くする*/}
-      <h1 className="text-3xl font-bold">クリックカウンター</h1>
+      <h1 className="text-3xl font-bold text-white tracking-tight">
+        クリックカウンター
+      </h1>
 
       {/*任意のpxサイズを直接指定*/}
-      <p style={{ fontSize: "200px" }} className="font-bold">
+      {/* classNameに getCountColor() を呼び出す */}
+      <p
+        style={{ fontSize: "200px" }}
+        className={`font-bold ${getCountColor()}`}
+      >
         {count}
       </p>
       {/*JSX（React）では class がJavaScriptの予約語と被るため、className と書く*/}
@@ -43,7 +54,7 @@ export default function Counter() {
       <div className="flex gap-5">
         {/*ボタンをクリックしたときの動作。count + 1 した値を setCount でセット。→ 画面の数字が +1 される。*/}
         <button
-          className="bg-blue-500 text-white px-6 py-3 rounded-xl text-xl hover:bg-blue-600"
+          className="bg-zinc-700 text-white px-6 py-3 rounded-xl text-xl hover:bg-zinc-600"
           onClick={() => setCount(count + 1)}
         >
           {/*rounded-xl角を丸くするtext-xl文字を大きくする*/}
@@ -54,7 +65,7 @@ export default function Counter() {
         </button>
         {/*こちらは 0 をセットしているのでリセット。*/}
         <button
-          className="bg-red-400 text-white px-6 py-3 rounded-xl text-xl hover:bg-red-500"
+          className="bg-zinc-800 text-zinc-400 px-6 py-3 rounded-xl text-xl hover:bg-red-500 hover:text-white"
           onClick={() => setCount(0)}
         >
           リセット

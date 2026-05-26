@@ -1,69 +1,64 @@
-import Image from "next/image";
 import Link from "next/link";
-
+//「next/link というパッケージから Link を借りてくる」 という宣言
 export default function Home() {
+  //「このファイルのメインのページをここに書きます」という宣言。
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            こんにちは, Kato Ryu!!.
-          </h1>
-          <nav>
-            <Link href="/about">私について/</Link>
-            <Link href="/contact">連絡先はこちら</Link>
-          </nav>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            始め方や詳しい手順を探してますか？ 初学者向けになるけど{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            もしくは{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            centerを確認してね。
+    // 1行なら () 不要 return <div>Hello</div>
+    // 複数行なら () で囲むreturn (<div> <p>Hello</p></div>)
+    <div className="min-h-screen bg-zinc-900 flex items-center justify-center font-sans">
+      {/*min-h-screen 最低でも画面の高さいっぱいに広げる
+         bg-zinc-900 背景色を濃いダークグレーにする
+         flex 子要素を並べるレイアウトモードにする
+         items-center 縦方向を中央揃え
+         justify-center 横方向を中央揃え
+         font-sans フォントをサンセリフ体にする*/}
+      <main className="flex flex-col items-center text-center gap-12">
+        {/*flex 子要素を並べるレイアウトモードにする
+           flex-col 子要素を縦並びにする
+           items-center 横方向を中央揃え
+           text-center テキストを中央揃え
+           gap-12 子要素どうしの間隔を開ける（48px）*/}
+        {/* 名前・タイトル */}
+        <div className="flex flex-col gap-4">
+          <p className="text-zinc-500 text-sm tracking-widest uppercase">
+            {/* tracking とは 文字と文字の**間隔（字間）**を調整するTailwindのクラス */}
+            {/* uppercase とは 文字をすべて大文字に変換するクラス
+                "私について"  → そのまま（日本語は変わらない）
+                "portfolio"  → "PORTFOLIO"
+                "about"      → "ABOUT" */}
+            ここは私のサーバーです。
           </p>
+          <h1 className="text-5xl font-bold text-white tracking-tight">
+            KaTo RyU
+          </h1>
+          <p className="text-zinc-400 text-lg">Developer</p>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+
+        {/* 3つが組み合わさって細い区切り線 w-16横幅 64pxh-px高さ 1px */}
+        <div className="w-16 h-px bg-zinc-700" />
+
+        {/* ナビゲーション */}
+        <nav className="flex flex-col items-center gap-4">
+          <Link
+            href="/about"
+            // importを書かないと…エラー！Linkが何かわからない
+            className="text-zinc-400 hover:text-white text-sm tracking-widest uppercase transition-colors duration-200"
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+            私について
+          </Link>
+          <Link
+            href="/contact"
+            className="text-zinc-400 hover:text-white text-sm tracking-widest uppercase transition-colors duration-200"
           >
-            Documentation
-          </a>
-        </div>
+            連絡先
+          </Link>
+          <Link
+            href="/counter"
+            className="text-zinc-400 hover:text-white text-sm tracking-widest uppercase transition-colors duration-200"
+          >
+            クリックカウンター
+          </Link>
+        </nav>
       </main>
     </div>
   );
