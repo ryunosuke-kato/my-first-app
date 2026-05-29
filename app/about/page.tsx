@@ -14,9 +14,7 @@ export default function About() {
           <p className="text-zinc-500 text-sm tracking-widest uppercase">
             About
           </p>
-          <h1 className="text-4xl font-bold text-white tracking-tight">
-            Kato Ryunosuke
-          </h1>
+          <h1 className="text-4xl font-bold text-white tracking-tight">K R</h1>
           <p className="text-zinc-500 text-sm">ryu</p>
         </div>
 

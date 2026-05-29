@@ -22,7 +22,7 @@ export default function Contact() {
           <p className="text-zinc-500 text-xs tracking-widest uppercase">
             Representative
           </p>
-          <p className="text-white text-lg">Kato Ryunosuke</p>
+          <p className="text-white text-lg">K R</p>
         </div>
 
         {/* 連絡先 */}
@@ -55,7 +55,7 @@ export default function Contact() {
 
           {/* GitHub */}
           <a
-            href="https://github.com/ryunosuke-kato"
+            href="https://github.com/"
             target="_blank"
             //target="_blank" とは 外部サイトへのリンクは新しいタブで開く
             className="text-zinc-300 hover:text-white transition-colors duration-200"
