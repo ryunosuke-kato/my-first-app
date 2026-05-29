@@ -1,6 +1,7 @@
 // app/memos/page.tsx
 // lib/prisma.ts から Prisma クライアントを読み込む
 import { prisma } from "@/lib/prisma"; //@/ → プロジェクトのルートを指す省略記法
+import MemoForm from "./MemoForm"; //./MemoForm → 同じフォルダ（app/memos/）にある MemoForm.tsx を読み込む
 // export default       このファイルのメインの部品として外部に公開する
 // async                非同期処理（DBアクセスなど待つ処理）を使う
 // function MemosPage() MemosPage という名前の関数
@@ -24,9 +25,13 @@ export default async function MemosPage() {
   // それ以外 → メモ一覧を表示
   // 三項演算子（? :）を使っています：条件 ? 真のとき : 偽のとき
   // toLocaleString("ja-JP") は日時を日本語形式に変換
+  // <MemoForm /> h1（タイトル）の下、メモ一覧の上にフォームを表示する
   return (
     <main className="max-w-2xl mx-auto p-8">
       <h1 className="text-2xl font-bold mb-6">メモ一覧</h1>
+
+      <MemoForm />
+
       {memos.length === 0 ? (
         <p className="text-gray-500">メモがありません</p>
       ) : (
