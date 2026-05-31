@@ -28,9 +28,7 @@ export default function Home() {
                 "about"      → "ABOUT" */}
             ここは私のサーバーです。
           </p>
-          <h1 className="text-5xl font-bold text-white tracking-tight">
-            KaTo RyU
-          </h1>
+          <h1 className="text-5xl font-bold text-white tracking-tight">K R</h1>
           <p className="text-zinc-400 text-lg">Developer</p>
         </div>
 
@@ -57,6 +55,13 @@ export default function Home() {
             className="text-zinc-400 hover:text-white text-sm tracking-widest uppercase transition-colors duration-200"
           >
             クリックカウンター
+          </Link>
+          {/* ✅ 追加 */}
+          <Link
+            href="/memos"
+            className="text-zinc-400 hover:text-white text-sm tracking-widest uppercase transition-colors duration-200"
+          >
+            メモ
           </Link>
         </nav>
       </main>
