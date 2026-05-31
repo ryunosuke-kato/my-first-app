@@ -32,6 +32,19 @@ export default function MemoForm() {
   //   formAction = form の action に渡す関数
   //   isPending  = 送信中かどうか（true/false）← ボタンの無効化に使う
 
+  // mt-1                余白（margin-top）を 4px つける
+  // w-full              横幅を親要素いっぱいに広げる
+  // rounded-lg          角を丸くする（large サイズ）
+  // border              枠線をつける
+  // border-zinc-700     枠線の色をダークグレーにする
+  // bg-zinc-800         背景色を少し明るいダークグレーにする
+  // text-white          文字色を白にする
+  // px-4                左右の内側余白を 16px にする
+  // py-3                上下の内側余白を 12px にする
+  // focus:outline-none  フォーカス時のブラウザデフォルト枠線を消す
+  // focus:border-zinc-500  フォーカス時に枠線を少し明るくする
+  // transition-colors   色の変化をなめらかにアニメーションする
+  // duration-200        アニメーションの時間を 200ms にする
   return (
     <form action={formAction} className="mb-8 space-y-4">
       {/*
@@ -43,7 +56,7 @@ export default function MemoForm() {
 
       {/* エラーメッセージの表示 */}
       {state?.error && (
-        <div className="rounded bg-red-100 p-3 text-red-700">{state.error}</div>
+        <div className="rounded bg-red-900 p-3 text-red-300">{state.error}</div>
       )}
       {/* ↑ state?.error = state が null でなく、error プロパティがある場合だけ表示 */}
 
@@ -62,7 +75,7 @@ export default function MemoForm() {
           type="text"
           required
           // ↑ HTML の required = ブラウザ側でも空送信を防ぐ（二重チェック）
-          className="mt-1 w-full rounded border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="mt-1 w-full rounded-lg border border-zinc-700 bg-zinc-800 text-white px-4 py-3 focus:outline-none focus:border-zinc-500 transition-colors duration-200"
           placeholder="メモのタイトル"
         />
       </div>
@@ -71,7 +84,7 @@ export default function MemoForm() {
       <div>
         <label
           htmlFor="content"
-          className="block text-sm font-medium text-gray-700"
+          className="block text-sm tracking-widest uppercase text-zinc-500"
         >
           本文
         </label>
@@ -81,7 +94,7 @@ export default function MemoForm() {
           // ↑ name="content" ← Server Action で formData.get('content') と対応！
           required
           rows={4}
-          className="mt-1 w-full rounded border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="mt-1 w-full rounded-lg border border-zinc-700 bg-zinc-800 text-white px-4 py-3 focus:outline-none focus:border-zinc-500 transition-colors duration-200"
           placeholder="メモの内容"
         />
       </div>
@@ -91,7 +104,7 @@ export default function MemoForm() {
         type="submit"
         disabled={isPending}
         // ↑ isPending = 送信中は true → ボタンを押せなくする（二重送信防止）
-        className="rounded bg-blue-600 px-4 py-2 text-white hover:bg-blue-700 disabled:opacity-50"
+        className="mt-1 w-full rounded-lg border border-zinc-700 bg-zinc-800 text-white px-4 py-3 focus:outline-none focus:border-zinc-500 transition-colors duration-200"
         // ↑ disabled:opacity-50 = 無効時に半透明にして視覚的にわかりやすく
       >
         {isPending ? "送信中..." : "メモを追加"}
